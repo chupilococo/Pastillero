@@ -1,0 +1,81 @@
+.ui-panel-wrapper{
+    background: #b1e57c !important;
+}
+
+
+#principal .pantallas{
+    border: solid greenyellow 3px;
+    text-align: center;
+    padding: 0;
+}
+
+.pantallas .botones{
+    border-radius: 3%;
+    padding: 10px;
+}
+
+.pantallas .botones a{
+border-radius: 3%;
+width: 100%;
+display: inline-block;
+height: 7em;
+overflow: hidden;
+background-size: cover;
+}
+.recetadosButton{
+    background-image:url("../resourses/imgs/recetados.jpg");
+    background-size: cover;
+}
+.VlButton{
+    background-image:url("../resourses/imgs/libre.jpeg");
+    background-size: cover;
+}
+.ninosButton{
+    background-image:url("../resourses/imgs/ninos.jpeg");
+    background-size: cover;
+}
+.osButton{
+    background-image:url("../resourses/imgs/sinergia.jpg");
+    background-size: cover;
+}
+.sucButton{
+    background-image:url("../resourses/imgs/sucursales.jpg");
+    background-size: cover;
+}
+.consejosButton{
+    background-image:url("../resourses/imgs/consejos.jpg");
+    background-size: cover;
+}
+.pantallas .botones a:hover{
+    background: rgba(39,44,22,.1);
+}
+
+.remdioIMG, .mutualIMG, .imgParent{
+    width: 100%;
+    border-radius: 5%;
+    background-color: white;
+}
+
+.imgParent{
+  background-color: white;
+  min-height: 8em;
+  margin: 0.2em;
+}
+
+.centerText{
+    text-align: center!important;
+}
+
+.consejo{
+  word-wrap: break-word !important;
+}
+
+
+#sucursalesMapa{
+    padding: 0;
+    position : absolute !important;
+    top : 40px !important;
+    right : 0;
+    bottom : 0 !important;
+    left : 0 !important;
+}

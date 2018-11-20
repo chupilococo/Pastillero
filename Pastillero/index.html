@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta   charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jqm/jquery-1.12.3.min.js"></script>
+    <script src="jqm/jquery.mobile-1.4.5.js"></script>
+    <link   rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+    <script src="js/mapa.js"></script>
+    <script src="js/localStorage.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuNRDaEIJniQNH5t7iP1lwjp4AIe2DWrc&libraries=places" type="text/javascript"></script>
+    <link rel="stylesheet" href="jqm/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="jqm/pastitheme.css">
+    <link rel="stylesheet" href="css/Pastillero.css">
+    <script>
+        $(document).on("ready", function() {
+            $.mobile.defaultPageTransition = 'slide';
+            $.mobile.defaultDialogTransition = 'slideup';
+        });
+    </script>
+    <title>Pastillero</title>
+</head>
+<body>
+<div data-role="page" id="principal">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="false" style="max-width:400px;">
+                <div data-role="header" data-theme="a">
+                <h2>Información</h2>
+                </div>
+                <div role="main" class="ui-content">
+                    <h3 class="ui-title">Datos del alumno</h3>
+                    <ul>
+                        <li>Nombre: Carena Danilo</li>
+                        <li>Carrera: Diseño web</li>
+                        <li>Curso: DW2ATN</li>
+                        <li>Materia: Interacción con dispositivos mobiles</li>
+                        <li>Profesor: Omar Toyos</li>
+                        <li>Fecha: 06/07/2018</li>
+                    </ul>
+                    <a href="#principal" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a" data-rel="back">Aceptar</a>
+                </div>
+        </div>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+
+        <div class="ui-grid-a">
+            <div class="ui-block-a botones recetadosButton">
+                <a href= "#recetados" style="text-decoration: none;">
+                    <h2>Recetados</h2>
+                </a>
+            </div>
+            <div class="ui-block-b botones VlButton">
+                <a href= "#vl" style="text-decoration: none;">
+                        <h2>Venta Libre</h2>
+                </a>
+            </div>
+
+            <div class="ui-block-a botones ninosButton">
+                <a href= "#ninos" style="text-decoration: none;">
+                    <h2>Ni&ntilde;os</h2>
+                </a>
+            </div>
+            <div class="ui-block-b botones osButton">
+                <a href= "#os" style="text-decoration: none;">
+                        <h2><abbr title="obras sociales">O.S.</abbr>/<br/>Mutuales</h2>
+                </a>
+            </div>
+            <div class="ui-block-b botones sucButton">
+                <a href= "#sucursales" style="text-decoration: none;">
+                        <h2>Sucursales</h2>
+                </a>
+            </div>
+            <div class="ui-block-b botones consejosButton">
+                <a href= "#consejos" style="text-decoration: none;">
+                        <h2>Consejos</h2>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a data-icon="info" href="#popupDialog" data-rel="popup" data-transition="pop">Info</a>
+                </li>
+                <li>
+                    <a href="#submenu" data-role="button" data-icon="bullets" data-rel="open">Menu</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenu" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <li data-icon="check"><a href="#vl">Venta Libre</a></li>
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="calendar"><a href="#os">O.S/Mutuales</a></li>
+            <li data-icon="location"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="plus"><a href="#consejos">Consejos</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+<!--
+    PAGINA DE RECETADOS
+ -->
+<div data-role="page" id="recetados">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+        <ul data-role="listview">
+            <li data-role="collapsible" data-inset="false">
+                <h2>Ribotril</h2>
+                <img class="remdioIMG" src="resourses/imgs/ribotril.jpg" alt="imagen del medicamento">
+                <p>
+                    El clonazepam es un fármaco <br>
+                    perteneciente al grupo de las benzodiazepinas <br>
+                    que actúa sobre el sistema nervioso central, <br>
+                    con propiedades ansiolíticas, anticonvulsionantes, <br>
+                    miorrelajantes, sedantes, hipnóticas <br>
+                    y estabilizadoras del estado de ánimo.
+                </p>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2> Harvoni</h2>
+                <img class="remdioIMG" src="resourses/imgs/havoni.jpeg" alt="imagen del medicamento">
+                <p>
+                    Una combinación de dos fármacos <br>
+                    para el tratamiento de la hepatitis C. <br>
+                    El Ledipasvir, es un inhibidor específico <br>
+                    de la proteína NS5A. <br>
+                    El Sofosbuvir, es un inhibidor nucleótido <br>
+                    de la polimerasa NS5B.
+                </p>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2> Humira </h2>
+                <img class="remdioIMG" src="resourses/imgs/humira.jpg" alt="imagen del medicamento">
+                <p>
+                    Una combinación de dos fármacos <br>
+                    para el tratamiento de la hepatitis C. <br>
+                    El Ledipasvir, es un inhibidor específico <br>
+                    de la proteína NS5A. <br>
+                    El Sofosbuvir, es un inhibidor nucleótido <br>
+                    de la polimerasa NS5B.
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                <li><a href ="#principal" data-icon="home" ></a></li>
+                <li>   <a href="#submenuRecetados" data-icon="bullets" data-iconpos="notext"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenuRecetados" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon=""><a href="#vl">Venta Libre</a></li>
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="mail"><a href="#os">O.S/Mutuales</a></li>
+            <li data-icon="mail"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="mail"><a href="#consejos">Consejos</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="noner" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--//////////////////////////////---- VENTA LIBRE ----//////////////////////////////-->
+
+<div data-role="page" id="vl">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+        <ul data-role="listview">
+            <li data-role="collapsible" data-inset="false">
+                <h2>NEXT</h2>
+                <img class="remdioIMG" src="resourses/imgs/next.png" alt="imagen del medicamento">
+                <p>
+                    Los comprimidos Next <br>
+                    poseen una completa fórmula ideal <br>
+                    para aliviar los síntomas de la gripe. <br>
+                    Combina paracetamol, un efectivo analgésico que alivia el dolor y la fiebre <br>
+                    cafeína, ideal para reducir el decaimiento, <br>
+                    butetamato, para dilatar los bronquios y eliminar la tos <br>
+                    y frenilefrina, un potente descongestivo que alivia la congestión nasal y mejora la respiración.
+                </p>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2> AZIATOP</h2>
+                <img class="remdioIMG" src="resourses/imgs/aziatop.png" alt="imagen del medicamento">
+                <p>
+                  Aziatop está indicado <br>
+                  para la acidez frecuente <br>
+                  cuando no haya obtenido  <br>
+                  resultados con Omeprazol 10 mg.
+                </p>
+                <p>
+                  No se recomienda para el inmediato alivio de la acidez ocasional. <br>
+                  Aziatop debe tomarse por más de 3 días para lograr su total efecto. <br>
+                  Indicado solo para adultos, mayores de 18 años.
+                </p>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2> IBU400 </h2>
+                <img class="remdioIMG" src="resourses/imgs/ibu400.png" alt="imagen del medicamento">
+                <p>
+                  El ibuprofeno forma parte del grupo <br>
+                  de los antiinflamatorios no esteroideos o AINEs, <br>
+                  un conjunto de fármacos de acción rápida <br>
+                  que son comúnmente utilizados <br>
+                  para aliviar síntomas de dolor, inflamación y fiebre.
+                </p>
+                <p>
+                  Los AINEs inhiben una enzima, <br>
+                  la llamada ciclooxigenasa, <br>
+                  que se transforma en prostaglandinas <br>
+                  y tromboxanos.
+                </p>
+            </li>
+        </ul>
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                <li><a href ="#principal" data-icon="home" ></a></li>
+                <li><a href="#submenuVL" data-icon="bullets" data-iconpos="notext"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenuVL" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <!--<li data-icon="check"><a href="#vl">Venta Libre</a></li>-->
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="calendar"><a href="#os">O.S/Mutuales</a></li>
+            <li data-icon="location"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="plus"><a href="#consejos">Consejos</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<!--///////////////////---------------------Pagina de Niños------------------------///////////////////-->
+
+
+
+<div data-role="page" id="ninos">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+        <ul data-role="listview">
+            <li data-role="collapsible" data-inset="false">
+                <h2>Aspirinetas</h2>
+                <div>
+                    <img class="remdioIMG" src="resourses/imgs/aspirinetas.jpeg" alt="">
+                    <p>
+                      Aspirinetas contiene 100 mg. <br>
+                      de ácido acetilsalícico.<br>
+                      Además de las clásicas indicaciones <br>
+                      como analgésico, <br>
+                      antifebril y antiinflamatorio, <br>
+                      estas bajas dosis de aspirina <br>
+                      están indicadas <br>
+                      como antiagregante plaquetario.
+                    </p>
+                </div>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2>Mejoralito</h2>
+                <div>
+                    <img class="remdioIMG" src="resourses/imgs/mejoralit.jpeg" alt="">
+                    <p>
+                      Alivia la fiebre, <br>
+                      el dolor y el malestar <br>
+                      por resfriado común o catarro <br>
+                      y después de la vacunación. <br>
+                      Alivia el dolor de cabeza, <br>
+                      dental y de oídos.
+                    </p>
+                </div>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2>Novalgina</h2>
+                <div>
+                    <img class="remdioIMG" src="resourses/imgs/novalgina.jpg" alt="">
+                    <p>
+                      Novalgina es un potente analgésico <br>
+                      antipirético y antiinflamatorio <br>
+                      con metamizol como principio activo. <br>
+                      Este medicamento inhibe <br>
+                      la producción de prostaglandinas, <br>
+                      unas sustancias endógenas <br>
+                      responsables del dolor.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                <li><a href ="#principal" data-icon="home" ></a></li>
+                <li><a href="#submenuNinos" data-icon="bullets" data-iconpos="notext"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenuNinos" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <li data-icon="check"><a href="#vl">Venta Libre</a></li>
+            <li data-icon="calendar"><a href="#os">O.S/Mutuales</a></li>
+            <li data-icon="location"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="plus"><a href="#consejos">Consejos</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--///////////////////---------------------Pagina de Mutuales------------------------///////////////////-->
+
+
+
+<div data-role="page" id="os">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+        <h2>Tabajamos con las siguientes Obras Sociales y Mutuales</h2>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div class="imgParent">
+              <img class="mutualIMG" src="resourses/imgs/osde.png" alt="OSDE">
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <div class="imgParent">
+                <img class="mutualIMG" src="resourses/imgs/galeno.jpg" alt="GALENO">
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div class="imgParent">
+              <img class="mutualIMG" src="resourses/imgs/medife.jpg" alt="Medife">
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <div class="imgParent">
+                <img class="mutualIMG" src="resourses/imgs/swiss.jpg" alt="Swiss medical">
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                <li><a href ="#principal" data-icon="home" ></a></li>
+                <li><a href="#submenuOS" data-icon="bullets" data-iconpos="notext"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenuOS" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <li data-icon="check"><a href="#vl">Venta Libre</a></li>
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="location"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="plus"><a href="#consejos">Consejos</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--//////////////////----------------------mis remedios-----------------------------////////////////////-->
+
+
+<div data-role="page" id="misRemedios">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+        <h2>Mis Remedios</h2>
+        <ul data-role="listview" id="misRemedios_lista">
+            <li data-role="collapsible" data-inset="false">
+                <h2>Aspirinetas</h2>
+                <div>
+                    <p>
+                        Lorem ipsum dolor sit amet, <br>
+                        Animi consequatur, <br>
+                        neque nobis sapiente vel velit!
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                <li><a href ="#principal" data-icon="home" ></a></li>
+                <li><a href="#submenuMR" data-icon="bullets" data-iconpos="notext"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenuMR" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <li data-icon="check"><a href="#vl">Venta Libre</a></li>
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="location"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="plus"><a href="#consejos">Consejos</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--///////////////////---------------------Pagina de Consejos------------------------///////////////////-->
+
+
+
+
+
+
+<div data-role="page" id="consejos">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+        <ul data-role="listview">
+            <li data-role="collapsible" data-inset="false">
+                <h2>Consejo para la Gripe</h2>
+                <div>
+                    <img class="mutualIMG" src="resourses/imgs/gripe.jpg" alt="">
+                    <p class="consejo" >
+                      Estar atentos ante cualquier síntoma, <br>
+                      aunque sea leve, así será más sencillo <br>
+                      hacer frente a la enfermedad, sin permitir <br>
+                      que se propague o se vuelva más peligrosa. <br>
+                      Ante cualquier reacción <br>
+                      o señal del cuerpo como un escalofrío, <br>
+                      un poco de dolor de garganta o un mareo, <br>
+                      comenzar a contrarrestar los síntomas. <br>
+                      No hay que esperar a sentirse mal <br>
+                      para tratar la gripe.<br>
+                      Mantener el cuerpo caliente, <br>
+                      por más de que se sienta <br>
+                      calor por la fiebre, porque <br>
+                      esto ayuda a eliminar los virus <br>
+                      que causan el resfrío. <br>
+                      Los pies también deben <br>
+                      estar bien abrigados, <br>
+                      porque es por donde <br>
+                      circula más cantidad de sangre. <br>
+                      No dejar de usar medias <br>
+                      o dejarlos cerca de la calefacción.
+                    </p>
+                </div>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2>Empacho</h2>
+                <div>
+                    <img  class="mutualIMG" src="resourses/imgs/empacho.jpg" alt="">
+                    <p>
+                        Para desalojar y limpiar <br>
+                        el tubo digestivo,<br>
+                        se emplean infusiones <br>
+                        con un efecto purgante, <br>
+                        laxante, calmante y digestivo. <br>
+                        Entre ellas están las de hierbabuena, <br>
+                        rosa de castilla, manzanilla y canela.
+                    </p>
+                </div>
+            </li>
+            <li data-role="collapsible" data-inset="false">
+                <h2>inflamación por Golpe</h2>
+                <div>
+                    <img  class="mutualIMG" src="resourses/imgs/inflamacion.jpg" alt="">
+                    <p>
+                         <strong>Ponte hielo.</strong> <br>
+                         Sus propiedades para reducir <br>
+                         la inflamación son muy buenas; <br>
+                         por lo que puedes ponerlo en compresas, <br>
+                         en un paño o toalla; <br>
+                         en cualquier caso <br>
+                         haz todo lo posible por que el hielo <br>
+                         nunca toque la piel directamente, <br>
+                         porque la puede quemar. <br>
+                         Repite varias veces al día <br>
+                         y no lo mantengas más de 20 minutos.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                <li><a href ="#principal" data-icon="home" ></a></li>
+                <li><a href="#submenuConsejos" data-icon="bullets" data-iconpos="notext"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenuConsejos" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <li data-icon="check"><a href="#vl">Venta Libre</a></li>
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="calendar"><a href="#os">O.S/Mutuales</a></li>
+            <li data-icon="location"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--///////////////////---------------------Pagina de Sucursales------------------------///////////////////-->
+
+<div data-role="page" id="sucursales">
+    <div data-role="header">
+        <h1 class="h1">Pastillero</h1>
+    </div>
+
+    <div role="main" class="ui-content pantallas" >
+        <!-- ACA VA A CARGAR EL MAPA -->
+        <div data-role="content" id="sucursalesMapa">
+            <div id="mapa" style="width:100%; height:100%">
+                <p>
+                    aca va un mapa
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                <li><a href ="#principal" data-icon="home" ></a></li>
+                <li><a href="#submenuSuc" data-icon="bullets" data-iconpos="notext"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="submenuSuc" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <li data-icon="check"><a href="#vl">Venta Libre</a></li>
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="calendar"><a href="#os">O.S/Mutuales</a></li>
+            <li data-icon="plus"><a href="#consejos">Consejos</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<!-- 
+    Los primeros dos atributos de la etiqueta widget, NO los tocamos (xmlns xmlns:gap). El atributo id, especifica un identificador único para la aplicación, 
+				esto es obligatorio si quisiéramos subir la app al Play Store o App Store. El formato DEBE ser una url invertida.
+	El atriburo version, es el número de versión, que va en el siguiente formato:
+			MAJOR.MINOR.PATCH, donde:
+            Major: Son cambios de versión importantes que rompen
+                   compatibilidad de la app hacia atrás (versiones anteriores).
+            Minor: Son cambios que no rompen la compatibilidad hacia atrás.
+            Patch: Son arreglos de errores, agregados pequeños o parches del código.
+-->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.davinci.ejemplo"
+        version   = "0.1.0">
+	
+    <!-- Esta etiqueta define el NOMBRE de la app (con él va a figurar tanto en el store como en el dispositivo) -->
+    <name>Pastillero V2</name>
+
+    <!-- Descripción para el Play Store -->
+    <description>
+        Appicacion de farmacia con consejos.
+    </description>
+
+    <!-- Los datos del autor para el PlayStore -->
+    <author email="danicarna@gmail.com">
+        	Carena Danilo
+    </author>
+	
+	<!--Plataformas habilitadas para Phonegap Build-->
+	
+	<platform name="android" />
+	
+	
+	
+    <!-- Preference son las preferencias para nuestra app y permissions son los permisos que pide la app al dispositivo al instalarse. El valor none indica que, por defecto, la app no pida permisos que no necesite de inmediato, salvo el de INTERNET que requiere siempre Phonegap. Al margen de éstos, se sumarán los permisos necesarios para los plugins incluidos más abajo.-->
+    <preference name="permissions" value="none"/>
+	
+	<!--Habilitar permisos individuales:
+	
+  	Se requiere el permiso "dispositivo" para el evento 'deviceready'.
+    <feature name="http://api.phonegap.com/1.0/device" />
+	<feature name="http://api.phonegap.com/1.0/battery" />
+	<feature name="http://api.phonegap.com/1.0/camera" />
+	<feature name="http://api.phonegap.com/1.0/contacts" />
+	<feature name="http://api.phonegap.com/1.0/file" />
+	
+	<feature name="http://api.phonegap.com/1.0/media" />
+	<feature name="http://api.phonegap.com/1.0/network" />
+	<feature name="http://api.phonegap.com/1.0/notification" />-->
+	
+	<feature name="http://api.phonegap.com/1.0/geolocation" />
+	
+	<preference name="phonegap-version" value="cli-6.5.0" />
+	<!--La versión de Phonegap con la que empaquetaremos la app-->
+	
+    <preference name="orientation" value="portrait" /> 
+	<!-- Por defecto ambos habilitados ("default") -->
+	
+    <preference name="target-device" value="universal" /> 
+	<!-- valores: teléfono, tablet o universal -->
+	
+    <preference name="fullscreen" value="false" /> 
+	<!-- oculta la barra de estado en la parte superior de la pantalla -->
+	
+	
+    <preference name="android-minSdkVersion" value="7" /> 
+	<!-- android: mínima versión del SDK que admite el dispositivo, la 
+	máxima está vacía en forma predeterminada -->
+	
+    <preference name="android-installLocation" value="auto" /> 
+	<!-- android: lugar de instalación, Auto: elige InternalOnly: en 
+	la memoria del dispositivo y PreferExternal: en tarjeta de memoria-->
+
+	<preference name="splashScreenDelay" value="6000" />
+	<!-- Tiempo de espera de la pantalla inicial-->
+	
+	
+	
+	
+    <!-- Inclusión de plugins de Cordova. Los plugins son librerías que agregamos a nuestra aplicación para poder acceder a aspectos internos del dispositivo desde Javascript. 
+	Solo debemos dejar descomentados aquellos que necesitamos para el desarrollo, el resto no hay que incluirlos ya que van a solicitar permisos por demás que pueden generar desconfianza en el usuario.
+	<plugin name="cordova-plugin-battery-status" source="npm" />
+	<plugin name="cordova-plugin-media-capture" source="npm" />
+	<plugin name="cordova-plugin-console" source="npm" />
+	<plugin name="cordova-plugin-contacts" source="npm" />
+	<plugin name="cordova-plugin-device" source="npm" />
+	<plugin name="cordova-plugin-device-motion" source="npm" />
+	<plugin name="cordova-plugin-device-orientation" source="npm" />
+	<plugin name="cordova-plugin-dialogs" source="npm" />
+	<plugin name="cordova-plugin-file" source="npm" />
+	<plugin name="cordova-plugin-file-transfer" source="npm" />
+	<plugin name="cordova-plugin-inappbrowser" source="npm" />
+	<plugin name="cordova-plugin-media" source="npm" />
+	<plugin name="cordova-plugin-network-information" source="npm" />
+	<plugin name="cordova-plugin-vibration" source="npm" />-->
+	<plugin name="cordova-plugin-camera" spec="1" />
+	<plugin name="cordova-plugin-globalization" source="npm" />
+	<plugin name="cordova-plugin-geolocation" source="npm" />
+	<plugin name="cordova-plugin-splashscreen" source="npm" />
+	<plugin name="cordova-plugin-statusbar" source="npm"/>
+	
+	<!-- Configuración de la barra de estado -->
+	<preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#00ff00" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+	<!--StatusBarStyle: lightcontent (default), blacktranslucent, blackopaque.-->
+	
+	
+	<!-- Icono de la aplicación para cada plataforma -->
+	
+	<!-- Icono general que usarán todos los dispositivos (ubicado en la raíz
+	de la carpeta al lado del index, llamado icon.png) -->
+    <icon src="icon.png" />
+	
+	<!-- Iconos para cada tipo de resolución y plataforma (descomentar SOLO el que se usa y respetar la ruta donde ubicar el archivo: res/icon/android... el nombre del archivo puede variar)
+	
+    <icon src="res/icon/android/icon-36-ldpi.png" 
+		gap:platform="android" gap:density="ldpi" />
+    <icon src="res/icon/android/icon-48-mdpi.png" 
+		gap:platform="android" gap:density="mdpi" />
+    <icon src="res/icon/android/icon-72-hdpi.png" 
+		gap:platform="android" gap:density="hdpi" />
+    <icon src="res/icon/android/icon-96-xhdpi.png" 
+		gap:platform="android" gap:density="xhdpi" />
+		
+    <icon src="res/icon/ios/icon-57.png" 
+		gap:platform="ios" width="57" height="57" />
+    <icon src="res/icon/ios/icon-72.png" 
+		gap:platform="ios" width="72" height="72" />
+    <icon src="res/icon/ios/icon-57-2x.png" 
+		gap:platform="ios" width="114" height="114" />
+    <icon src="res/icon/ios/icon-72-2x.png" 
+		gap:platform="ios" width="144" height="144" />
+		
+    <icon src="res/icon/webos/icon-64.png" 
+		gap:platform="webos" />
+		
+    <icon src="res/icon/windows-phone/icon-48.png" 
+		gap:platform="winphone" />
+    <icon src="res/icon/windows-phone/icon-173.png" 
+		gap:platform="winphone" gap:role="background" />
+	-->
+	
+	
+	<!--Podemos incluir un SPLASH SCREEN genérico como hacemos con el icono, pero los dispositivos deforman la imagen para adaptarla a sus condiciones de pantalla-->
+    
+  	<gap:splash src="splash.png" />
+	
+	<!-- Al igual que para los iconos, se debe descomentar SOLO si se incluye la imagen de ese tamaño, para esa resolución de pantalla y respetar la ruta de carpetas (ver los tamaños para cada resolución de Android) como se muestra a continuación como ejemplo: -->
+	
+    
+	<gap:splash src="res/screen/android/splash.png" 
+		gap:platform="android" gap:density="mdpi" />
+		
+	<gap:splash src="res/screen/android/splash_hdpi.png" 
+		gap:platform="android" gap:density="hdpi" />
+    <!-- Pantalla de presentación para cada plataforma. 
+	
+	<splash platform="android" qualifier="port-ldpi" src="res/screen/android/splash.png" />
+	
+    <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" 
+		gap:platform="android" gap:density="xhdpi" />
+	<gap:splash src="res/screen/android/screen-xxhdpi-portrait.png" 
+		gap:platform="android" gap:density="xxhdpi" />
+	<gap:splash src="res/screen/android/screen-xxxhdpi-portrait.png" 
+		gap:platform="android" gap:density="xxxhdpi" />
+		
+    <gap:splash src="res/screen/ios/screen-iphone-portrait.png" 
+		gap:platform="ios" width="320" height="480" />
+    <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" 
+		gap:platform="ios" width="640" height="960" />
+    <gap:splash src="res/screen/ios/screen-ipad-portrait.png" 
+		gap:platform="ios" width="768" height="1024" />
+    <gap:splash src="res/screen/ios/screen-ipad-landscape.png" 
+		gap:platform="ios" width="1024" height="768" />
+    <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" 
+		gap:platform="winphone" />
+	-->
+
+    <!-- Acceso a dominios externos
+	
+	- EN BLANCO: niega el acceso a todos los recursos externos.
+	<access /> 	
+	
+	- ASTERISCO: permite el acceso a todos los recursos externos.			
+	<access origin="*" /> 	
+	
+	- También se pueden establecer dominios específicos						
+    <access origin="http://127.0.0.1*"/> 
+	<access origin="http://google.com" />
+	-->
+	
+    <!-- Listas blancas de dominio es un modelo de seguridad que controla el acceso a dominios externos sobre los cuales su aplicación no tiene ningún control. Cordova ofrece una política de seguridad configurable para definir los sitios externos 	que pueden accederse. De forma predeterminada, las aplicaciones están configuradas para permitir el acceso a cualquier sitio.
+    Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html 
+	
+	Por ejemplo:
+	acceso a google.com (https, servidor seguro)
+	<access origin="https://google.com" />
+	acceso a maps.google.com
+	<access origin="http://maps.google.com" />
+	acceso a todos los subdominios de google (incluye maps anterior)
+	<access origin="http://*.google.com" />
+	-->
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+</widget>
