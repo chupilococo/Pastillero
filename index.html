@@ -420,17 +420,24 @@
     <div role="main" class="ui-content pantallas" >
         <h2>Mis Remedios</h2>
         <ul data-role="listview" id="misRemedios_lista">
-            <li data-role="collapsible" data-inset="false">
-                <h2>Aspirinetas</h2>
-                <div>
-                    <p>
-                        Lorem ipsum dolor sit amet, <br>
-                        Animi consequatur, <br>
-                        neque nobis sapiente vel velit!
-                    </p>
-                </div>
-            </li>
+            <!--<li data-role="collapsible" data-inset="false">-->
+                <!--<h2>Aspirinetas</h2>-->
+                <!--<div>-->
+                    <!--<p>-->
+                        <!--Lorem ipsum dolor sit amet, <br>-->
+                        <!--Animi consequatur, <br>-->
+                        <!--neque nobis sapiente vel velit!-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</li>-->
         </ul>
+
+
+
+
+    <div id="callAgregar">
+        <a href="#agregar" title="agregar">+</a>
+    </div>
     </div>
 
     <div data-role="footer" data-theme="a" data-position="fixed">
@@ -442,7 +449,6 @@
             </ul>
         </div>
     </div>
-
     <div id="submenuMR" data-role="panel" data-display="reveal" data-position="right">
         <ul data-role="listview">
             <li data-theme="a" data-role="list-divider">Menú</li>
@@ -456,6 +462,47 @@
     </div>
 </div>
 
+
+<div data-role="page"  id="agregar" >
+    <!-- Este es el header-->
+    <div data-role="header" >
+        <h1>Agregar</h1>
+    </div>
+    <!-- aca termina el header -->
+    <!-- aca empieza la vista de la botonera -->
+    <div role="main" class="ui-content">
+        <form action="#" id="formAdd">
+            <label for="formNombre">  Nombre  </label>
+            <input type="text" id="formNombre" name="nombre" placeholder="Nombre Medicamento">
+            <label for="formDesc">  Descripci&oacute;n  </label>
+            <textarea name="descripcion" id="formDesc"></textarea>
+            <input type="submit" value="Agregar">
+        </form>
+        <div data-role="popup" data-theme="b" data-dismissible="false" data-transition="flip" id="popupConfirm">
+        </div>
+        <div data-role="footer" data-theme="a" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a data-rel="back" data-icon="back" data-iconpos="notext" ></a></li>
+                    <li><a href ="#principal" data-icon="home" ></a></li>
+                    <li><a href="#submenuMRA" data-icon="bullets" data-iconpos="notext"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="submenuMRA" data-role="panel" data-display="reveal" data-position="right">
+        <ul data-role="listview">
+            <li data-theme="a" data-role="list-divider">Menú</li>
+            <li data-icon="mail"><a href="#recetados">Recetados</a></li>
+            <li data-icon="check"><a href="#vl">Venta Libre</a></li>
+            <li data-icon="user"><a href="#ninos">Ni&ntilde;os</a></li>
+            <li data-icon="location"><a href="#sucursales">Sucursales</a></li>
+            <li data-icon="plus"><a href="#consejos">Consejos</a></li>
+            <li data-icon="user"><a href="#misRemedios">Mis remedios</a></li>
+            <li data-theme="b" data-icon="none" ><a href="#" class="centerText" data-rel="close">Cerrar</a></li>
+        </ul>
+    </div>
+</div>
 
 
 
