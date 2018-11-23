@@ -42,11 +42,13 @@ dc.addRemedio=function (remedio) {
         remedios.push(remedio);
         console.log(remedios);
         localStorage.setItem('remedios',JSON.stringify(remedios));
+        dc.poblateMisRemedios(JSON.parse(dc.loadRemedios()));
     }else {
         let remedios = JSON.parse(localStorage.getItem('remedios'));
         console.log(remedios);
         remedios.push(remedio);
         localStorage.setItem('remedios', JSON.stringify(remedios));
+        dc.poblateMisRemedios(JSON.parse(dc.loadRemedios()));
     }
     // dc.poblateMisRemedios(JSON.parse(dc.loadRemedios()));
 };
